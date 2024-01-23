@@ -8,10 +8,18 @@ function draw() {
 
     // make it zoom in and out
     // var zLoc = ((sin(frameCount) + 1) / 2 * height) + 200;
-    var xLoc = map(noise(frameCount/100), 0, 1, -500, 500);
-    var yLoc = map(noise(frameCount/100 + 100), 0, 1, -500, 500);
-    var zLoc = map(noise(frameCount/100 + 150), 0, 1, 300, 800);
-    camera(xLoc, yLoc, zLoc, 0, 0, 0, 0, 1, 0);
+    // var xLoc = map(noise(frameCount/100), 0, 1, -500, 500);
+    // var yLoc = map(noise(frameCount/100 + 100), 0, 1, -500, 500);
+    // var zLoc = map(noise(frameCount/100 + 150), 0, 1, 300, 800);
+
+    // circling around the object
+    // var xLoc = cos(frameCount) * height;
+    // var yLoc = sin(frameCount) * 300;
+    // var zLoc = sin(frameCount) * height;
+
+    // define where the camera pointing at
+    var xAim = sin(frameCount * 3) * 300;
+    camera(0, 0, height, xAim, 0, 0, 0, 1, 0);
 
     normalMaterial();
     torus(200, 50, 50, 50);
