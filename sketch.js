@@ -6,6 +6,18 @@ function setup() {
 function draw() {
     background(125); 
 
+    camera(0, -200, height, 0, 0, 0, 0, 1, 0);
+    perspective(60, width/height, mouseY, mouseX);
+
+    normalMaterial();
+
+    for(var i = -600; i <= 600; i += 150){
+        push();
+        translate(i, 0, 0);
+        box(80, 80, 500);
+        pop();
+    }
+
     // make it zoom in and out
     // var zLoc = ((sin(frameCount) + 1) / 2 * height) + 200;
     // var xLoc = map(noise(frameCount/100), 0, 1, -500, 500);
@@ -18,15 +30,9 @@ function draw() {
     // var zLoc = sin(frameCount) * height;
 
     // define where the camera pointing at
-    var xAim = sin(frameCount * 3) * 300;
-    camera(0, 0, height, xAim, 0, 0, 0, 1, 0);
+    // var xAim = sin(frameCount * 3) * 300;
+    // camera(0, 0, height, xAim, 0, 0, 0, 1, 0);
 
-    normalMaterial();
-    torus(200, 50, 50, 50);
-    translate(0, 100, 0);
-    rotateX(90)
-    fill(200);
-    plane(500, 500);
     // materials and light
     // noStroke();
     // ambientMaterial(255, 255, 255);
